@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+   <head>
+      <meta charset="utf-8" />
+      <title>Core Values</title>
+      <!-- add Twitter, Open Graph, Schema as JSON-LD, -->
+
+      <meta name="application-name" content="Core Values" />
+      <meta name="mobile-web-app-capable" content="yes" />
+      <link rel="manifest" type="application/manifest+json" href="manifest.webmanifest?v=1" />
+      
+      <meta name="apple-mobile-web-app-title" content="Core Values" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+      <link rel="icon" sizes="192x192" href="./images/icon-192x192.png" />
+      <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
+
+      <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0" />
+      
+      <link rel="apple-touch-icon" href="./images/icon.png" />
+      <link rel="apple-touch-icon" sizes="76x76" href="./images/icon-76x76.png" />
+      <link rel="apple-touch-icon" sizes="120x120" href="./images/icon-120x120.png" />
+      <link rel="apple-touch-icon" sizes="152x152" href="./images/icon-152x152.png" />
+      <link rel="apple-touch-icon" sizes="167x167" href="./images/icon-167x167.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="./images/icon-180x180.png" />
+
+      <link rel="apple-touch-startup-image" href="./images/core-values-960x1440.png" /> <!-- is this needed -->
+
+      <meta name="description" content="“Core Values” is a poem written in response to Dorothea Mackellar’s “My Country” as part of Australian Poetry’s Transforming My Country series." />
+      <link rel="canonical" href="https://poetry.codetext.net/core-values/" />
+
+
+      <!-- Twitter Card -->
+      <meta property="twitter:card" content="summary" />
+      <meta property="twitter:title" content="Core Values" />
+      <meta property="twitter:site" content="@benjaminlaird" />
+      <meta property="twitter:description" content="“Core Values” is a poem written in response to Dorothea Mackellar’s “My Country” as part of Australian Poetry’s Transforming My Country series." />
+      <meta property="twitter:image" content="https://poetry.codetext.net/core-values/images/core-values-1200x1200.png" />
+
+      <!-- Open Graph -->
+      <meta property="og:title" content="Core Values" />
+      <meta property="og:image" content="https://poetry.codetext.net/core-values/images/core-values-2400x1260.png" />
+      <meta property="og:url" content="https://poetry.codetext.net/core-values/" />
+      <meta property="og:description" content="“Core Values” is a poem written in response to Dorothea Mackellar’s “My Country” as part of Australian Poetry’s Transforming My Country series." />
+
+      <!-- Creative Commons -->
+      <link rel="cc:license" href="https://creativecommons.org/licences/by-sa/4.0/" />
+      <meta property="cc:attributionName" content="Benjamin Laird" />
+
+      <!-- Dublin Core -->
+      <meta property="dc:title" content="Core Values" />
+      <meta property="dc:description" content="" />
+      <meta property="dc:identifier" content="https://poetry.codetext.net/core-values/" />
+      <meta property="dc:creator" content="Benjamin Laird" />
+      <meta property="dc:publisher" content="Australian Poetry" />
+      <link rel="dc:type" href="http://purl.org/dc/dcmitype/InteractiveResource" />
+      
+      <link href="https://fonts.googleapis.com/css?family=Goudy+Bookletter+1911" rel="stylesheet" />
+      <style>
+          html, body { margin: 0; padding:0; width: 100%; height: 100%; overflow: hidden; }
+          canvas { width: 100%; height: 100%; display:block; background-color:#fff;}
+          header { 
+             height: 37px; 
+             background-color: #000; 
+             z-index: 10;
+             position: absolute; 
+             top: 0; 
+             left: 0; 
+             width: 100%; 
+             transition: top 1s;
+             -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                     box-sizing: border-box;
+          }
+          h1 {
+            font-family: 'Goudy Bookletter 1911', serif; 
+            color: #FFF; 
+            text-align: center; 
+            padding: 10px 0 0; 
+            margin: 0; 
+            vertical-align: middle; 
+            line-height: 20px; 
+            font-weight: normal; 
+            -webkit-font-smoothing: subpixel-antialiased;
+            cursor: default; 
+          }
+          #controls-tab {
+             position: absolute;
+             width: 40px;
+             height: 10px;
+             background-color: #444;
+             bottom: 37px;
+             right: 70px; 
+             overflow: hidden;
+             border-radius: 5px 5px 0 0;
+             transition: bottom 1s, height 1s, opacity 1s; 
+             opacity: 0.6;
+          }
+          #controls-tab:hover {
+             height: 25px;
+             opacity: 1;
+          }
+          #controls-switch {
+             padding: 0;
+             display: block;
+             height: 25px;
+             width: 40px;
+             cursor: pointer;
+          }
+          #controls-switch img {
+             width: 30px;
+             height: auto;
+             padding: 5px;
+          }
+          .without-controls header {
+             top: -37px;
+          }
+          .without-controls menu {
+             bottom: -37px;
+          }
+          .without-controls #controls-tab {
+             bottom: 0;
+          }
+          menu { 
+             height: 37px;
+             background-color: #000;
+             position: absolute;
+             display: block;
+             bottom: 0;
+             margin: 0;
+             left: 0;
+             width: 100%;
+             transition: bottom 1s;
+             -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                     box-sizing: border-box;
+          }
+          menu { 
+             list-style-type: none; 
+             padding: 0;
+             margin: 0;
+          }
+          menu li { 
+             padding: 0; 
+             margin: 0;
+          }
+          #about,
+          #fullscreen,
+          #play-pause,
+          #audio,
+          #share,
+          #close-share-modal,
+          #close-about-modal,
+          #stereoscopic { 
+             cursor: pointer; 
+             position: absolute;
+          }
+          button img { 
+             height: 25px; 
+             width: auto; 
+             border: none; 
+          }
+          button::-moz-focus-inner { /* remove extra padding from Firefox */
+             padding: 0;
+             border: 0
+          }
+          #about {
+             right: 235px;
+             top: 5px;
+             height: 25px;
+             width: 25px;
+             border: 2px solid #FFF;
+             -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                     box-sizing: border-box;
+             font-family: 'Goudy Bookletter 1911', serif;
+             text-align: center;
+             border-radius: 50%;
+             font-size: 1.4em;
+             line-height: 0.8em;
+             vertical-align: top;
+          }
+          #about abbr {
+             text-decoration: none;
+             -webkit-font-smoothing: subpixel-antialiased;
+          }
+          #share {
+             right: 195px; 
+             top: 5px;
+          }
+          #play-pause {
+             right: 155px; 
+             top: 5px;
+          }
+          #audio {
+             right: 115px; 
+             top: 5px;
+          }
+          #fullscreen {
+             right: 75px; 
+             top: 5px;
+          }
+          #stereoscopic { 
+             right: 35px; 
+             top:5px; 
+          }
+          button {
+             padding: 1px; 
+             margin: 0; 
+             border: none; 
+             background-color: transparent;
+             color: #FFF; 
+             display: block; 
+             height: 25px; 
+             min-width: 25px;
+             text-align: center;
+             -webkit-box-sizing: content-box; 
+                -moz-box-sizing: content-box;
+                     box-sizing: content-box;
+          }
+          button:focus {
+             outline: none;
+          }
+          button:hover, 
+          button:active {
+             outline: none;
+             opacity:0.5;
+          } 
+          a:link, a:visited { color:#000; }
+          .modal-screen {
+            position: absolute; 
+            z-index: 50;
+            background-color: #000;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+          }
+          .modal-panel {
+            position: absolute; 
+            z-index: 100;
+            width: 420px;
+            height: 230px;
+            background-color: #DDD;
+            background-color: #EEE;
+            color: #000;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+               -moz-transform: translateY(-50%);
+                    transform: translateY(-50%);
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+            border: 10px solid #000;
+            border-radius: 5px;
+            overflow: hidden;
+          }
+          .modal-panel h2 {
+            background-color: #000;
+            color: #FFF;
+            font-family: 'Goudy Bookletter 1911', serif;
+            margin: 0;
+            padding: 0 0 5px 0;
+            line-height: 1em;
+            font-weight: normal;
+          }
+          .modal-panel h3 {
+            font-family: 'Goudy Bookletter 1911', serif;
+            margin: 10px 0 5px 10px;
+            padding: 0;
+            font-weight: normal;
+          }
+          .modal-panel p {
+            font-family: 'Goudy Bookletter 1911', serif;
+            margin: 10px;
+            text-align: justify;
+          }
+          .modal-panel img.cover {
+            width: 80px;
+            height: auto;
+            float: left;
+            margin: 4px 8px 0 0;
+          }
+          .modal-panel input {
+            border: 1px solid #666;
+            width: 400px;
+            font-family: sans-serif;
+            font-size: 0.8em;
+            margin: 0 0 0 10px;
+            padding: 3px;
+            -webkit-box-sizing: border-box;
+               -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+          }
+          .modal-panel textarea {
+            resize: none;
+            overflow: hidden;
+            border: 1px solid #666;
+            width: 400px;
+            height: 53px;
+            font-family: sans-serif;
+            font-size: 0.8em;
+            margin: 0 0 0 10px;
+            padding: 3px;
+            -webkit-box-sizing: border-box;
+               -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+          }
+          #share-modal,
+          #about-modal {
+            display: none;
+          }
+          .show-share-modal #share-modal {
+            display: block;
+          }
+          .show-about-modal #about-modal {
+            display: block;
+          }
+          #close-share-modal,
+          #close-about-modal {
+             right: 0; 
+             top: 0; 
+          }
+          #close-share-modal img,
+          #close-about-modal img {
+             height: 20px; 
+             width: auto; 
+          }
+          .poem {
+            font-style: normal;
+          }
+          .poem:before {
+            content:"“";
+          }
+          .poem:after {
+            content:"”";
+          } 
+      </style>
+   </head>
+    <body>
+      <header id="header"><h1>Core Values</h1></header>
+      <div id="controls-tab"><button type="button" id="controls-switch"><img alt="Hide controls" title="Hide controls" src="./images/down-arrow.svg" /></button></div>
+      <menu id="control-menu">
+         <li><button type="button" id="about"><abbr title="About">i</abbr></button></li>
+         <li><button type="button" id="share"><img alt="Share" title="Share" src="./images/share.svg" /></button></li>
+         <li><button type="button" id="play-pause"><img id="rotation-icon" alt="Start rotation" title="Start rotation" src="./images/rotate.svg" /></button></li>
+         <!-- <li><button type="button" id="audio"><img id="audio-icon" alt="Play audio" title="Play audio" src="./images/audio.svg" /></button></li> -->
+         <li><button type="button" id="fullscreen"><img id="fullscreen-icon" alt="Fullscreen" title="Go fullscreen" src="./images/fullscreen.svg" /></button></li>
+         <li><button type="button" id="stereoscopic"><img alt="Stereoscopic mode" title="Stereoscopic mode" src="./images/stereoscopic.svg" /></button></li>
+      </menu>
+<div id="share-modal"><div class="modal-screen"></div><div class="modal-panel"><button type="button" id="close-share-modal"><img src="./images/close.svg" alt="Close share" title="Close share"></button><h2>Share</h2><h3>Link to this poem</h3><input id="chapbook-link" type="text" readonly="readonly" value="https://poetry.codetext.net/core-values/"><h3>Embed this poem</h3><textarea id="chapbook-embed" readonly="readonly" cols="60" rows="5">&lt;iframe src="https://poetry.codetext.net/core-values/" style="width:100%;height:400px;" allowfullscreen="allowfullscreen"&gt;&lt;/iframe&gt;</textarea></div></div>
+<div id="about-modal"><div class="modal-screen"></div><div class="modal-panel"><button type="button" id="close-about-modal"><img src="./images/close.svg" alt="Close about" title="Close about"></button><h2>About</h2><h3>About <cite class="poem">Core Values</cite> by Benjamin Laird</h3><p>This poem was written in response to Dorothea Mackellar’s “My Country” as part of <a target="_top" href="http://www.australianpoetry.org/">Australian Poetry</a>’s <cite>Transforming My Country</cite> series.</p></div></div>
+
+      <script src="./js/three.min.js"></script>
+      <script src="./js/effects/StereoEffect.js"></script>
+      <script src="./js/controls/DeviceOrientationControls.js"></script>
+      <script src="./js/controls/OrbitControls.js"></script>    
+      <script>
+        "use strict";
+        //change the controls, add a text loader, move to init!
+        //check font width issue
+        var scene, camera, renderer, controls, effect;
+        var lines = [];
+        //var light;
+        var pointLight;
+        var isRotating = false;
+        var isAudioPlaying = false;
+        var inStereo = false;
+        var withControls = true;
+        var myCountry = [
+          ["Colonised cartographies cross pages",
+          "New Holland, Van Diemen’s Land,",
+          "New South Wales",
+          "Ink seeps topographic features",
+          "Terra—forming—Australis",
+          "Etching names, places, people",
+          "Reindexed as GIS data",
+          "Annexed by bureaucrats"],
+          ["Cross-referenced in spreadsheets",
+          "Where column and row intersect",
+          "A Procrustean solution",
+          "Little children will be confined",
+          "Three-and-a-half steps to the door",
+          "One-and-a-half steps across",
+          "Lacking natural light",
+          "No running water"],
+          ["With each column and row",
+          "Aggregate the details",
+          "Every name a statistic",
+          "Every cell a crime scene",
+          "Multiplied and replicated",
+          "Divided and incubated",
+          "A melanoma for a sunburnt country",
+          "Hidden under pale concealer"],
+          ["With each column and row",
+          "Count the bodies in custody",
+          "Add a new sheet for the morgue",
+          "In this autopsy",
+          "Bones as bleached white",
+          "As coral reefs which reach",
+          "Beyond to islands creaking",
+          "In deep oceans like prison hulks"],
+          ["Liberty is reserved for",
+          "Coal, iron ore, gold and meat",
+          "Office machines and crude oil", 
+          "We are all sold short",
+          "As stocks and futures trade",
+          "Blinking in and out of",
+          "Landlocked servers",
+          "On holidays in the Caribbean"],
+          ["Contour lines extend past coastlines",
+          "Thin paper becomes rigid",
+          "As swallowed razor blades",
+          "For foundering ships, rocks",
+          "A calcification of public discourse",
+          "Recourse left unrepresented",
+          "To sentences of detention",
+          "Or refoulement at sea"]
+        ];
+        function inFullscreen() {
+          return document.fullscreenElement ||    // alternative standard method
+            document.mozFullScreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
+        }
+        function isFullscreenEnabled() {
+          var _isFullscreenEnabled;
+
+          if(document.fullscreenEnabled){
+            _isFullscreenEnabled = document.fullscreenEnabled;
+          }
+          else if(document.msFullscreenEnabled){ 
+            _isFullscreenEnabled = document.msFullscreenEnabled;
+          } 
+          else if (document.mozFullScreenEnabled){
+            _isFullscreenEnabled = document.mozFullScreenEnabled;
+          }
+          else if (document.webkitFullscreenEnabled){
+            _isFullscreenEnabled = document.webkitFullscreenEnabled;
+          }
+          return _isFullscreenEnabled;
+        }
+        function toggleFullscreen() {
+          if (!inFullscreen()) {
+            if (document.documentElement.requestFullscreen) {
+              document.documentElement.requestFullscreen();
+            } else if (document.documentElement.msRequestFullscreen) {
+              document.documentElement.msRequestFullscreen();
+            } else if (document.documentElement.mozRequestFullScreen) {
+              document.documentElement.mozRequestFullScreen();
+            } else if (document.documentElement.webkitRequestFullscreen) {
+              document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+            }
+          } else {
+            if (document.exitFullscreen) {
+              document.exitFullscreen();
+            } else if (document.msExitFullscreen) {
+              document.msExitFullscreen();
+            } else if (document.mozCancelFullScreen) {
+              document.mozCancelFullScreen();
+            } else if (document.webkitExitFullscreen) {
+              document.webkitExitFullscreen();
+            }
+          }
+          windowResize();
+        }
+        function toggleShareModal() {
+          controls.enabled = !controls.enabled;
+          document.querySelector('body').classList.toggle("show-share-modal");
+        }
+        function toggleAboutModal() {
+          controls.enabled = !controls.enabled;
+          document.querySelector('body').classList.toggle("show-about-modal");
+        }
+        function toggleAudio() {
+          var audioIcon;
+          audioIcon = document.getElementById('audio-icon');
+          if (isAudioPlaying) {
+            audioIcon.src = './images/audio.svg';
+            audioIcon.alt = 'Play audio';
+            audioIcon.title = 'Play audio';
+          } else {
+            audioIcon.src = './images/no-audio.svg';
+            audioIcon.alt = 'Stop audio';
+            audioIcon.title = 'Stop audio';
+          }
+          isAudioPlaying = !isAudioPlaying;
+        }
+        function toggleRotation() {
+          var rotationIcon;
+          rotationIcon = document.getElementById('rotation-icon');
+          if (isRotating) {
+            rotationIcon.src = './images/rotate.svg';
+            rotationIcon.alt = 'Start rotation';
+            rotationIcon.title = 'Start rotation';
+            controls.autoRotate = false;
+            controls.autoRotateSpeed = 0.5;
+          } else {
+            rotationIcon.src = './images/pause.svg';
+            rotationIcon.alt = 'Stop rotation';
+            rotationIcon.title = 'Stop rotation';
+            controls.autoRotate = true;
+            controls.autoRotateSpeed = 0.5;
+          }
+          isRotating = !isRotating;
+        }
+        function toggleControls() {
+          var controlsIcon;
+          controlsIcon = document.getElementById('rotation-icon');
+          controlsIcon = document.querySelector('#controls-switch img');
+          if (withControls) {
+            controlsIcon.src = './images/up-arrow.svg';
+            controlsIcon.alt = 'Show controls';
+            controlsIcon.title = 'Show controls';
+          } else {
+            controlsIcon.src = './images/down-arrow.svg';
+            controlsIcon.alt = 'Hide controls';
+            controlsIcon.title = 'Hide controls';
+          }
+          withControls = !withControls;
+          document.querySelector('body').classList.toggle("without-controls");
+          windowResize();
+        }
+        function togglePerspective() {
+          var prevCamera = camera;
+          var controlsTab = document.getElementById('controls-tab');
+          var controlMenu = document.getElementById('control-menu');
+          var header = document.getElementById('header');
+          camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 100, 10000 );
+          camera.position.copy( prevCamera.position );
+          camera.rotation.copy( prevCamera.rotation );
+          if (inStereo) {
+            controls = new THREE.OrbitControls( camera );
+            controls.enableZoom = false;
+            controls.enablePan = false;
+            controls.target = new THREE.Vector3(0, 500, 0);
+            controls.autoRotate = false;
+            controls.autoRotateSpeed = 0.5;
+            // display block on controls and control handler
+            controlsTab.style.display = 'block';
+            controlMenu.style.display = 'block';
+            header.style.display = 'block';
+          } else {
+            // if not in fullscreen go fullscreen
+            if (!inFullscreen()) {
+              toggleFullscreen();
+            }
+            // if rotating disable the rotation
+            if (isRotating) {
+              toggleRotation();
+            }
+            controls = new THREE.DeviceOrientationControls( camera );
+            // display none on controls and control handler
+            controlsTab.style.display = 'none';
+            controlMenu.style.display = 'none';
+            header.style.display = 'none';
+          }
+          inStereo = !inStereo;
+          windowResize();
+        }
+         function Wall( map, location, rotation ) {
+            var geometryPlane = new THREE.PlaneGeometry( 2000, 2000);
+            var mapTexture = new THREE.TextureLoader().load( map );
+            mapTexture.minFilter = THREE.NearestFilter;
+            var materialPlane = new THREE.MeshPhongMaterial( {map: mapTexture, side: THREE.DoubleSide} );
+            this.plane = new THREE.Mesh( geometryPlane, materialPlane );
+            this.plane.position.copy(location);
+            this.plane.rotation.copy(rotation);
+            //remove
+            scene.add(this.plane);
+         }
+         function CanvasText(text, orientation, position, rotation) {
+            var width = 4000, height = 400;
+            this.canvas = document.createElement("canvas");
+            this.canvas.height = height;
+            this.canvas.width = width;
+            this.context = this.canvas.getContext("2d");
+
+            //set the canvas as transparent (may not be needed)
+            this.context.fillStyle = "rgba(0,0,0,0)";
+            this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
+
+            //write the text
+            this.context.font = "160pt serif";
+            this.context.fillStyle = "#5C0C0C";
+            //this.context.fillStyle = "#000000";
+            this.context.textAlign = "start";
+            this.context.textBaseline = "middle";
+            this.context.fillText(text, 100, this.canvas.height / 2);
+
+            //set texture and set needs update
+            this.texture = new THREE.Texture(this.canvas);
+            this.texture.minFilter = THREE.NearestFilter;
+            this.texture.needsUpdate = true;
+
+            //set up the material and geometry
+            this.material = new THREE.MeshPhongMaterial({ map: this.texture, transparent: true, depthWrite: true, depthTest: false, side: THREE.DoubleSide });
+            this.geometry = new THREE.PlaneGeometry( width/2, height/2);
+
+            this.mesh = new THREE.Mesh( this.geometry, this.material );
+
+            this.mesh.position.copy( position );
+            if (rotation) {
+               this.mesh.rotation.copy(rotation);
+            }
+            this.orientation = orientation;
+            //set text speed
+            this.speed = (Math.random() * (3 - 1) + 1)/2;
+
+            scene.add( this.mesh );
+         }
+         CanvasText.prototype.updateText = function(newText) {
+            //work out what's actually needed
+            this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            this.context.font = '190pt serif';
+            this.context.fillStyle = 'rgba(0,0,0,0)';
+            this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
+            this.context.fillStyle = 'black';
+            this.context.textAlign = "start";
+            this.context.textBaseline = "middle";
+            this.context.fillText(newText, 100, this.canvas.height / 2);
+            this.texture.needsUpdate = true;
+         }
+         CanvasText.prototype.driftLine = function() {
+            switch (this.orientation) {
+               case ("-z"):
+                  this.mesh.position.z = this.mesh.position.z - this.speed;
+                  if (this.mesh.position.z > 950 ) {
+                     this.material.opacity = (1000 - this.mesh.position.z)/50;
+                  } else if (this.mesh.position.z < -950 ) {
+                     this.material.opacity = (1000 + this.mesh.position.z)/50;
+                  }
+                  if (this.mesh.position.z<-1000) {
+                     this.mesh.position.z = 1000;
+                  }
+                  break;
+               case ("+z"):
+                  this.mesh.position.z = this.mesh.position.z + this.speed;
+                  if (this.mesh.position.z > 950 ) {
+                     this.material.opacity = (1000 - this.mesh.position.z)/50;
+                  } else if (this.mesh.position.z < -950 ) {
+                     this.material.opacity = (1000 + this.mesh.position.z)/50;
+                  }
+                  if (this.mesh.position.z>1000) {
+                     this.mesh.position.z = -1000;
+                  }
+                  break;
+               case ("+y"):
+               default:
+                  this.mesh.position.y = this.mesh.position.y + this.speed;
+                  if (this.mesh.position.y > 1950 ) {
+                     this.material.opacity = (2000 - this.mesh.position.y)/50;
+                  } else if (this.mesh.position.y < 50 ) {
+                     this.material.opacity = (this.mesh.position.y)/50;
+                  }
+                  if (this.mesh.position.y>=2000) {
+                     this.mesh.position.y = 0;
+                  }  
+            }
+         }
+         var clock = new THREE.Clock();
+         initAustralia();
+         animate();
+        function updateWindow() {
+          var fullscreenIcon;
+           if (!inFullscreen()) {
+             fullscreenIcon = document.getElementById('fullscreen-icon');
+             fullscreenIcon.src = './images/fullscreen.svg';
+             fullscreenIcon.alt = 'Go fullscreen';
+             fullscreenIcon.title = 'Go fullscreen';
+             if (inStereo) {
+               togglePerspective();
+               // replace controls
+             }
+           } else {
+             fullscreenIcon = document.getElementById('fullscreen-icon');
+             fullscreenIcon.src = './images/exit-fullscreen.svg';
+             fullscreenIcon.alt = 'Exit fullscreen';
+             fullscreenIcon.title = 'Exit fullscreen';
+           }
+        }
+         /* set up the environment */
+         function initAustralia() {
+            //move to an actual box geometry?
+            
+            camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 100, 10000 );
+
+            camera.position.y = 450;
+            camera.position.z = 50;
+            
+            scene = new THREE.Scene();
+
+            controls = new THREE.OrbitControls( camera );
+            controls.enableZoom = false;
+            controls.enablePan = false;
+            controls.target = new THREE.Vector3(0, 500, 0);
+            controls.autoRotate = false;
+            controls.autoRotateSpeed = 0.5;
+            //controls.maxDistance = 100;
+            //pointLight = new THREE.PointLight( 0xd0d0d0, 1, 10000 );
+            //pointLight = new THREE.PointLight( 0xddd0d0, 1, 10000 );
+            pointLight = new THREE.PointLight( 0xeed0d0, 1, 10000 );
+            pointLight.position.set( 0, 1000, 0 );
+            scene.add( pointLight );
+
+            var fullscreenButton = document.getElementById('fullscreen');
+            fullscreenButton.addEventListener("click", toggleFullscreen);
+            window.addEventListener('resize', updateWindow);
+            var playButton = document.getElementById('play-pause');
+            playButton.addEventListener("click", toggleRotation); 
+            /*  var audioButton = document.getElementById('audio');
+            audioButton.addEventListener("click", toggleAudio); */
+            var shareButton = document.getElementById('share');
+            shareButton.addEventListener("click", toggleShareModal);
+            var closeShareButton = document.getElementById('close-share-modal');
+            closeShareButton.addEventListener("click", toggleShareModal);
+            var aboutButton = document.getElementById('about');
+            aboutButton.addEventListener("click", toggleAboutModal);
+            var closeAboutButton = document.getElementById('close-about-modal');
+            closeAboutButton.addEventListener("click", toggleAboutModal);
+            var perspectiveSwitch = document.getElementById('stereoscopic');
+            perspectiveSwitch.addEventListener("click", togglePerspective);
+            var controlsSwitch = document.getElementById('controls-switch');
+            controlsSwitch.addEventListener("click", toggleControls);
+
+            new Wall('./maps/map1.jpg',new THREE.Vector3( 0, 0, 0), new THREE.Euler(-Math.PI/2, 0, Math.PI, 'XYZ'));
+            new Wall('./maps/map2.jpg',new THREE.Vector3( 0, 1000, 1000), new THREE.Euler(0, Math.PI, 0, 'XYZ'));
+            new Wall('./maps/map3.jpg',new THREE.Vector3( -1000, 1000, 0), new THREE.Euler(0, Math.PI/2, 0, 'XYZ'));
+            new Wall('./maps/map4.jpg',new THREE.Vector3( 1000, 1000, 0), new THREE.Euler(0, -Math.PI/2, 0, 'XYZ'));
+            new Wall('./maps/map5.jpg',new THREE.Vector3( 0, 2000, 0), new THREE.Euler(Math.PI/2, 0, Math.PI, 'XYZ'));
+            new Wall('./maps/map6.jpg',new THREE.Vector3( 0, 1000, -1000), new THREE.Euler(0, 0, 0, 'XYZ'));
+
+            var textVector = new THREE.Vector3( 0, 0, -1000);
+            var panelEuler = new THREE.Euler(0, Math.PI/2, 0, 'XYZ');
+
+
+            lines.push(new CanvasText(myCountry[0][0], "+y", textVector.setY(1800)));
+            lines.push(new CanvasText(myCountry[0][1], "+y", textVector.setY(1550)));
+            lines.push(new CanvasText(myCountry[0][2], "+y", textVector.setY(1300)));
+            lines.push(new CanvasText(myCountry[0][3], "+y", textVector.setY(1050)));
+            lines.push(new CanvasText(myCountry[0][4], "+y", textVector.setY(800)));
+            lines.push(new CanvasText(myCountry[0][5], "+y", textVector.setY(550)));
+            lines.push(new CanvasText(myCountry[0][6], "+y", textVector.setY(300)));
+            lines.push(new CanvasText(myCountry[0][7], "+y", textVector.setY(50)));
+
+            textVector.set(-1000, 0, 0);
+
+            lines.push(new CanvasText(myCountry[1][0], "+y", textVector.setY(1800), panelEuler));
+            lines.push(new CanvasText(myCountry[1][1], "+y", textVector.setY(1600), panelEuler));
+            lines.push(new CanvasText(myCountry[1][2], "+y", textVector.setY(1400), panelEuler));
+            lines.push(new CanvasText(myCountry[1][3], "+y", textVector.setY(1200), panelEuler));
+            lines.push(new CanvasText(myCountry[1][4], "+y", textVector.setY(1000), panelEuler));
+            lines.push(new CanvasText(myCountry[1][5], "+y", textVector.setY(800), panelEuler));
+            lines.push(new CanvasText(myCountry[1][6], "+y", textVector.setY(600), panelEuler));
+            lines.push(new CanvasText(myCountry[1][7], "+y", textVector.setY(400), panelEuler));
+
+            textVector.set(1000, 0, 0);
+            panelEuler.set(0, -Math.PI/2, 0, 'XYZ');
+
+            lines.push(new CanvasText(myCountry[2][0], "+y", textVector.setY(1800), panelEuler));
+            lines.push(new CanvasText(myCountry[2][1], "+y", textVector.setY(1600), panelEuler));
+            lines.push(new CanvasText(myCountry[2][2], "+y", textVector.setY(1400), panelEuler));
+            lines.push(new CanvasText(myCountry[2][3], "+y", textVector.setY(1200), panelEuler));
+            lines.push(new CanvasText(myCountry[2][4], "+y", textVector.setY(1000), panelEuler));
+            lines.push(new CanvasText(myCountry[2][5], "+y", textVector.setY(800), panelEuler));
+            lines.push(new CanvasText(myCountry[2][6], "+y", textVector.setY(600), panelEuler));
+            lines.push(new CanvasText(myCountry[2][7], "+y", textVector.setY(400), panelEuler));
+
+            textVector.set(0, 0, 1000);
+            panelEuler.set(0, Math.PI, 0, 'XYZ');
+
+            lines.push(new CanvasText(myCountry[3][0], "+y", textVector.setY(1800), panelEuler));
+            lines.push(new CanvasText(myCountry[3][1], "+y", textVector.setY(1600), panelEuler));
+            lines.push(new CanvasText(myCountry[3][2], "+y", textVector.setY(1400), panelEuler));
+            lines.push(new CanvasText(myCountry[3][3], "+y", textVector.setY(1200), panelEuler));
+            lines.push(new CanvasText(myCountry[3][4], "+y", textVector.setY(1000), panelEuler));
+            lines.push(new CanvasText(myCountry[3][5], "+y", textVector.setY(800), panelEuler));
+            lines.push(new CanvasText(myCountry[3][6], "+y", textVector.setY(600), panelEuler));
+            lines.push(new CanvasText(myCountry[3][7], "+y", textVector.setY(400), panelEuler));
+
+            textVector.set(0, 0, 0);
+            panelEuler.set(-Math.PI/2, 0, Math.PI, 'XYZ');
+
+            lines.push(new CanvasText(myCountry[4][0], "+z",textVector.setZ(800), panelEuler));
+            lines.push(new CanvasText(myCountry[4][1], "+z",textVector.setZ(600), panelEuler));
+            lines.push(new CanvasText(myCountry[4][2], "+z",textVector.setZ(400), panelEuler));
+            lines.push(new CanvasText(myCountry[4][3], "+z",textVector.setZ(200), panelEuler));
+            lines.push(new CanvasText(myCountry[4][4], "+z",textVector.setZ(0), panelEuler));
+            lines.push(new CanvasText(myCountry[4][5], "+z",textVector.setZ(-200), panelEuler));
+            lines.push(new CanvasText(myCountry[4][6], "+z",textVector.setZ(-400), panelEuler));
+            lines.push(new CanvasText(myCountry[4][7], "+z",textVector.setZ(-600), panelEuler));
+
+            textVector.set(0, 2000, 0);
+            panelEuler.set(Math.PI/2, 0, Math.PI, 'XYZ');
+
+            lines.push(new CanvasText(myCountry[5][0], "-z",textVector.setZ(-800), panelEuler));
+            lines.push(new CanvasText(myCountry[5][1], "-z",textVector.setZ(-600), panelEuler));
+            lines.push(new CanvasText(myCountry[5][2], "-z",textVector.setZ(-400), panelEuler));
+            lines.push(new CanvasText(myCountry[5][3], "-z",textVector.setZ(-200), panelEuler));
+            lines.push(new CanvasText(myCountry[5][4], "-z",textVector.setZ(0), panelEuler));
+            lines.push(new CanvasText(myCountry[5][5], "-z",textVector.setZ(200), panelEuler));
+            lines.push(new CanvasText(myCountry[5][6], "-z",textVector.setZ(400), panelEuler));
+            lines.push(new CanvasText(myCountry[5][7], "-z",textVector.setZ(600), panelEuler));            
+
+            renderer = new THREE.WebGLRenderer();
+            renderer.setSize( window.innerWidth, window.innerHeight );
+            renderer.setPixelRatio( window.devicePixelRatio );
+            document.body.appendChild( renderer.domElement );
+
+            effect = new THREE.StereoEffect( renderer );
+            effect.setSize( window.innerWidth, window.innerHeight );
+
+            //Resize the window
+            window.addEventListener( 'resize', windowResize, false );
+         }
+
+         function animate() {
+            requestAnimationFrame( animate );
+            render();
+         }
+         function render() {
+           var delta = clock.getDelta(),
+             time = clock.getElapsedTime() * 10;
+
+           for (var i=0; i < lines.length; i++) {
+              lines[i].driftLine();
+           }
+           if (inStereo) {
+             effect.render( scene, camera );
+           } else {
+             renderer.render(scene, camera);
+           }
+           controls.update( delta );
+         }
+         function windowResize() {
+           camera.aspect = window.innerWidth / window.innerHeight;
+           camera.updateProjectionMatrix();
+           if (inStereo) {
+             effect.setSize( window.innerWidth, window.innerHeight );
+           } else {
+             renderer.setSize( window.innerWidth, window.innerHeight );
+           }
+         }
+      </script>
+   </body>
+</html>
