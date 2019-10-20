@@ -3,8 +3,6 @@
    <head>
       <meta charset="utf-8" />
       <title>Core Values</title>
-      <!-- add Twitter, Open Graph, Schema as JSON-LD, -->
-
       <meta name="application-name" content="Core Values" />
       <meta name="mobile-web-app-capable" content="yes" />
       <link rel="manifest" type="application/manifest+json" href="manifest.webmanifest?v=1" />
@@ -25,7 +23,7 @@
       <link rel="apple-touch-icon" sizes="167x167" href="./images/icon-167x167.png" />
       <link rel="apple-touch-icon" sizes="180x180" href="./images/icon-180x180.png" />
 
-      <link rel="apple-touch-startup-image" href="./images/core-values-960x1440.png" /> <!-- is this needed -->
+      <link rel="apple-touch-startup-image" href="./images/core-values-960x1440.png" />
 
       <meta name="description" content="“Core Values” is a poem written in response to Dorothea Mackellar’s “My Country” as part of Australian Poetry’s Transforming My Country series." />
       <link rel="canonical" href="https://poetry.codetext.net/core-values/" />
@@ -358,11 +356,9 @@
       <script src="./js/controls/OrbitControls.js"></script>    
       <script>
         "use strict";
-        //change the controls, add a text loader, move to init!
-        //check font width issue
+
         var scene, camera, renderer, controls, effect;
         var lines = [];
-        //var light;
         var pointLight;
         var isRotating = false;
         var isAudioPlaying = false;
@@ -505,7 +501,6 @@
         }
         function toggleControls() {
           var controlsIcon;
-          controlsIcon = document.getElementById('rotation-icon');
           controlsIcon = document.querySelector('#controls-switch img');
           if (withControls) {
             controlsIcon.src = './images/up-arrow.svg';
@@ -565,7 +560,7 @@
             this.plane = new THREE.Mesh( geometryPlane, materialPlane );
             this.plane.position.copy(location);
             this.plane.rotation.copy(rotation);
-            //remove
+            // remove
             scene.add(this.plane);
          }
          function CanvasText(text, orientation, position, rotation) {
@@ -575,24 +570,22 @@
             this.canvas.width = width;
             this.context = this.canvas.getContext("2d");
 
-            //set the canvas as transparent (may not be needed)
             this.context.fillStyle = "rgba(0,0,0,0)";
             this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
-            //write the text
+            // write the text
             this.context.font = "160pt serif";
             this.context.fillStyle = "#5C0C0C";
-            //this.context.fillStyle = "#000000";
             this.context.textAlign = "start";
             this.context.textBaseline = "middle";
             this.context.fillText(text, 100, this.canvas.height / 2);
 
-            //set texture and set needs update
+            // set texture and set needs update
             this.texture = new THREE.Texture(this.canvas);
             this.texture.minFilter = THREE.NearestFilter;
             this.texture.needsUpdate = true;
 
-            //set up the material and geometry
+            // set up the material and geometry
             this.material = new THREE.MeshPhongMaterial({ map: this.texture, transparent: true, depthWrite: true, depthTest: false, side: THREE.DoubleSide });
             this.geometry = new THREE.PlaneGeometry( width/2, height/2);
 
@@ -603,13 +596,12 @@
                this.mesh.rotation.copy(rotation);
             }
             this.orientation = orientation;
-            //set text speed
+            // set text speed
             this.speed = (Math.random() * (3 - 1) + 1)/2;
 
             scene.add( this.mesh );
          }
          CanvasText.prototype.updateText = function(newText) {
-            //work out what's actually needed
             this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
             this.context.font = '190pt serif';
             this.context.fillStyle = 'rgba(0,0,0,0)';
@@ -695,9 +687,6 @@
             controls.target = new THREE.Vector3(0, 500, 0);
             controls.autoRotate = false;
             controls.autoRotateSpeed = 0.5;
-            //controls.maxDistance = 100;
-            //pointLight = new THREE.PointLight( 0xd0d0d0, 1, 10000 );
-            //pointLight = new THREE.PointLight( 0xddd0d0, 1, 10000 );
             pointLight = new THREE.PointLight( 0xeed0d0, 1, 10000 );
             pointLight.position.set( 0, 1000, 0 );
             scene.add( pointLight );
